@@ -26,7 +26,7 @@
     </style>
 </head>
 <body>
-    <form>
+    <!-- <form>
         <h2>What do you want to do today?</h2>
             <div class="form-input">
                 <label for="Type your task"></label>
@@ -36,7 +36,7 @@
                 <input type="checkbox" value="" id="flexCheckDefault">
                 <label for="flexCheckDefault"> Task 1</label>
             </div>
-    </form>
+    </form> -->
     <div id="root"></div>
 
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
@@ -45,18 +45,27 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <script type="text/babel">
+
+        function FormInput(){
+            return  <div className="form-input">
+                        <label htmlfor="Type your task">What do you want to do today?</label>
+                        <input type="text" id="Type your task" class="form-control" placeholder="Type your task"/>
+                    </div>
+        }
+
+        function FormCheck(){
+            return <div className="form-check">
+                        <input type="checkbox" value="" id="flexCheckDefault"/>
+                        <label htmlfor="flexCheckDefault"> Task 1</label>
+                    </div>
+        }
+
         function ToDoForm(){
-            return     <form>
-                            <h2>What do you want to do today?</h2>
-                                <div className="form-input">
-                                    <label htmlfor="Type your task"></label>
-                                    <input type="text" id="Type your task" class="form-control" placeholder="Type your task"/>
-                                </div>
-                                <div className="form-check">
-                                    <input type="checkbox" value="" id="flexCheckDefault"/>
-                                    <label htmlfor="flexCheckDefault"> Task 1</label>
-                                </div>
-                        </form>
+            return  <form>
+                        <FormInput />
+                        <FormCheck />
+                        
+                    </form>
         }
 
         ReactDOM.render(<ToDoForm />, document.getElementById('root'));
